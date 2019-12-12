@@ -3,13 +3,14 @@
 @import "./reset/remedy.css";
 
 body {
-  padding: 1rem;
+  padding: 1rem 0.5rem;
   font-family: "Poppins", sans-serif;
 }
 
 .header {
   display: flex;
   flex-direction: column;
+  margin-bottom: 4rem;
 }
 
 .header--city {
@@ -22,4 +23,56 @@ body {
   font-weight: 300;
   letter-spacing: -0.5px;
   font-size: 1rem;
+}
+
+.current--title {
+  letter-spacing: -0.5px;
+  font-size: 1.5rem;
+  text-align: center;
+  font-weight: 400;
+  margin-bottom: 1rem;
+}
+
+.current--temperature {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.current--temp-big {
+  font-size: 4rem;
+  font-weight: 500;
+  margin-left: 1rem;
+}
+
+.current--description {
+  text-align: center;
+  font-size: 1rem;
+  font-weight: 400;
+  margin-bottom: 4rem;
+}
+
+.current-details {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.current-details--box {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.current-details--detail {
+  font-size: 1.2rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+.current-details--desc {
+  font-size: 0.8rem;
+  line-height: 0.7;
 }
