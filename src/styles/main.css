@@ -1,0 +1,25 @@
+@import url("https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700&display=swap");
+
+@import "./reset/remedy.css";
+
+body {
+  padding: 1rem;
+  font-family: "Poppins", sans-serif;
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+}
+
+.header--city {
+  font-weight: 600;
+  font-size: 1.5rem;
+  letter-spacing: 0.5px;
+}
+
+.header--date {
+  font-weight: 300;
+  letter-spacing: -0.5px;
+  font-size: 1rem;
+}
