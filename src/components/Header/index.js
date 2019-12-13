@@ -1,9 +1,12 @@
 import React from "react";
+import moment from "moment";
 
-const Header = () => (
+const Header = ({ city }) => (
   <header className="header">
-    <span className="header--city">New York</span>
-    <span className="header--date">Wednesday 4 December 2019</span>
+    <span className="header--city">{city}</span>
+    <span className="header--date">
+      {moment().format("dddd, Do MMMM YYYY")}
+    </span>
   </header>
 );
 

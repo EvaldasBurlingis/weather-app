@@ -4,9 +4,9 @@ import IconCloudy from "../../icons/cloudy";
 
 const BigScreen = () => <div>This works best on mobile</div>;
 
-const MobileApp = () => (
+const MobileApp = ({ weatherData }) => (
   <>
-    <Header />
+    <Header city={weatherData.name} />
     <main>
       <section className="current">
         <h2 className="current--title">Today</h2>
@@ -36,14 +36,25 @@ const MobileApp = () => (
 
 const App = () => {
   const [width, setWidth] = useState(window.innerWidth);
+  const [weatherData, setWeatherData] = useState({});
+
+  const fetchData = () => {
+    fetch(API + APPID)
+      .then(response => response.json())
+      .then(data => setWeatherData(data))
+      .catch(error => console.error(error));
+  };
 
   useEffect(() => {
     window.addEventListener("resize", () => {
       setWidth(window.innerWidth);
     });
+
+    fetchData();
   }, []);
 
-  return width > 450 ? <BigScreen /> : <MobileApp />;
+  console.log(weatherData);
+  return width > 450 ? <BigScreen /> : <MobileApp weatherData={weatherData} />;
 };
 
 export default App;
