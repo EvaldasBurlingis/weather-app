@@ -12,10 +12,15 @@ body {
   margin-bottom: 4rem;
 }
 
+.header--main {
+  display: flex;
+}
+
 .header--city {
   font-weight: 600;
   font-size: 1.5rem;
   letter-spacing: 0.5px;
+  margin-right: 0.5rem;
 }
 
 .header--date {

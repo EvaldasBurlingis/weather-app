@@ -55,7 +55,7 @@ const App = () => {
   const [isLoading, setIsLoading] = useState(true);
 
   const fetchData = () => {
-    fetch(`${API_URL}vilnius&units=metric&appid=${process.env.REACT_APP_APPID}`)
+    fetch(`${API_URL}vilnius&units=metric&appid=${APPID}`)
       .then(response => response.json())
       .then(data => {
         setWeatherData(data)
