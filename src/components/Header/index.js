@@ -19,7 +19,7 @@ const SearchInput = ({ setIsSearchOpen }) => {
 }
 
 const Header = ({ city }) => {
-  const [isSearchOpen, setIsSearchOpen] = useState(true);
+  const [isSearchOpen, setIsSearchOpen] = useState(false);
 
   const toggleSearch = e => {
     setIsSearchOpen(!isSearchOpen)
