@@ -52,9 +52,10 @@ const App = () => {
   const [width, setWidth] = useState(window.innerWidth);
   const [weatherData, setWeatherData] = useState({});
   const [isLoading, setIsLoading] = useState(true);
+  const [city, setCity] = useState("Vilnius");
 
   const fetchData = () => {
-    fetch(`${API_URL}vilnius&units=metric&appid=${APPID}`)
+    fetch(`${API_URL}${city}&units=metric&appid=${APPID}`)
       .then(response => response.json())
       .then(data => {
         setWeatherData(data)
