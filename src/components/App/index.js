@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import Header from "../Header";
-import WeatherIcon from "../WeatherIcon";
 
 const API_URL = "https://api.openweathermap.org/data/2.5/weather?q="
 const APPID = process.env.REACT_APP_APPID
@@ -23,7 +22,7 @@ const MobileApp = ({ data, isLoading }) => {
         <section className="current">
           <h2 className="current--title">Today</h2>
           <div className="current--temperature">
-            {!isLoading && <WeatherIcon code={data.weather[0].id}/>}
+            {!isLoading && <img src={`http://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`} alt="Weather icon"/>}
             <span className="current--temp-big">
               {!isLoading && Math.round(data.main.temp)}&deg;
             </span>
