@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import SearchInput from "./search";
 
 
-const Header = ({ city, country, setCity, errors }) => {
+const Header = ({ city, country, setCity }) => {
   const [isSearchOpen, setIsSearchOpen] = useState(false);
 
   const toggleSearch = e => {

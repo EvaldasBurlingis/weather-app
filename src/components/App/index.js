@@ -15,11 +15,11 @@ const MobileApp = ({allData }) => {
     });
   }, []);
 
-  const [data, isLoading, setCity, errors] = allData
+  const [data, isLoading, setCity] = allData
 
   return (
     <div style={{ height: `${height}px`, padding: "1rem 0.5rem" }}>
-      {!isLoading && <Header city={data.name} country={data.sys.country} setCity={setCity} errors={errors}/>}
+      {!isLoading && <Header city={data.name} country={data.sys.country} setCity={setCity} />}
       <main>
         <section className="current">
           <h2 className="current--title">Today</h2>
@@ -54,18 +54,15 @@ const App = () => {
   const [width, setWidth] = useState(window.innerWidth);
   const [weatherData, setWeatherData] = useState({});
   const [isLoading, setIsLoading] = useState(true);
-  const [city, setCity] = useState('Rennes, France');
-  const [errors, setErrors] = useState("");
+  const [city, setCity] = useState('Reading, UK');
 
   const fetchData = () => {
     fetch(`${API_URL}${city}&units=metric&appid=${APPID}`)
       .then(response => response.json())
       .then(data => {
         if (data.cod === "404"){
-          setErrors("City not found");
           alert("City not found");
         } else {
-          console.log(data);
           setWeatherData(data)
           setIsLoading(false)
         }
@@ -81,7 +78,7 @@ const App = () => {
     fetchData();
   }, [city]);
 
-  const allData = [weatherData, isLoading, setCity, errors];
+  const allData = [weatherData, isLoading, setCity];
 
   return width > 450 ? <BigScreen /> : <MobileApp allData={allData}/>;
 };

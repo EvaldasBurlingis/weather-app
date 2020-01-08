@@ -24,5 +24,6 @@ const SearchInput = ({ setIsSearchOpen, setCity }) => {
 export default SearchInput
 
 SearchInput.propTypes = {
-    setIsSearchOpen: PropTypes.func
+    setIsSearchOpen: PropTypes.func,
+    setCity: PropTypes.func
 }

@@ -1,9 +1,6 @@
 import React, { useState } from 'react';
-import PlacesAutocomplete, 
-{
-  geocodeByAddress,
-  getLatLng
-} from 'react-places-autocomplete';
+import PlacesAutocomplete, { geocodeByAddress } from 'react-places-autocomplete';
+import PropTypes from "prop-types";
 
 const options = {
   types: ['(cities)']
@@ -11,7 +8,6 @@ const options = {
 
 const Autocomplete = ({ setCity, setIsSearchOpen }) => {
   const [address, setAddress] = useState('');
-  console.log(address);
 
   const handleChange = address => {
     setAddress(address);
@@ -39,14 +35,14 @@ const Autocomplete = ({ setCity, setIsSearchOpen }) => {
             {...getInputProps({
               placeholder: 'Enter City'
             })}
+            className="search-input"
           />
-          <div className="autocomplete-dropdown-container">
+          <div>
             {loading && <div>Loading...</div>}
             {suggestions.map(suggestion => {
               const className = suggestion.active
-                ? 'suggestion-item--active'
+                ? 'suggestion-item suggestion-item--active'
                 : 'suggestion-item';
-              // inline style for demonstration purpose
               const style = suggestion.active
                 ? { backgroundColor: '#fafafa', cursor: 'pointer' }
                 : { backgroundColor: '#ffffff', cursor: 'pointer' };
@@ -69,3 +65,8 @@ const Autocomplete = ({ setCity, setIsSearchOpen }) => {
 };
 
 export default Autocomplete
+
+Autocomplete.propTypes = {
+  setCity: PropTypes.func,
+  setIsSearchOpen: PropTypes.func
+}
