@@ -54,7 +54,7 @@ const App = () => {
   const [width, setWidth] = useState(window.innerWidth);
   const [weatherData, setWeatherData] = useState({});
   const [isLoading, setIsLoading] = useState(true);
-  const [city, setCity] = useState("reading,uk");
+  const [city, setCity] = useState('Rennes, France');
   const [errors, setErrors] = useState("");
 
   const fetchData = () => {

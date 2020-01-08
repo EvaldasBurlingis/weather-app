@@ -1,15 +1,9 @@
 import React from "react";
 import PropTypes from 'prop-types';
+import Autocomplete from "./autocomplete";
+
 
 const SearchInput = ({ setIsSearchOpen, setCity }) => {
-
-    // const handleClick = e => {
-    //     // setCity(city);
-    //     setIsSearchOpen(false);
-
-    //     e.preventDefault();
-    // }
-
     return (
       <div className="search">
         <div className="search--header">
@@ -19,7 +13,9 @@ const SearchInput = ({ setIsSearchOpen, setCity }) => {
           >
             Close
           </button>
-          <input type="text" id="autocomplete" placeholder=""/>
+        </div>
+        <div className="search--body">
+          <Autocomplete setCity={setCity} setIsSearchOpen={setIsSearchOpen}/>
         </div>
       </div>
     );
