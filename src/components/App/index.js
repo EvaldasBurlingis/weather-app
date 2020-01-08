@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from "react";
 import Header from "../Header";
+import PropTypes from "prop-types";
 
 const API_URL = "https://api.openweathermap.org/data/2.5/weather?q="
 const APPID = process.env.REACT_APP_APPID
 
 const BigScreen = () => <div>App works only on mobile</div>;
 
-const MobileApp = ({allData }) => {
+const MobileApp = ({ allData }) => {
   const [height, setHeight] = useState(window.innerHeight);
   
   useEffect(() => {
@@ -84,3 +85,7 @@ const App = () => {
 };
 
 export default App;
+
+MobileApp = {
+  allData: PropTypes.array
+}

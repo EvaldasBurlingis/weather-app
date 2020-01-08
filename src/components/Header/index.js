@@ -29,6 +29,7 @@ export default Header;
 
 Header.propTypes = {
   city: PropTypes.string,
-  country: PropTypes.string
+  country: PropTypes.string,
+  setCity: PropTypes.func
 }
 

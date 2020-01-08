@@ -1,11 +1,10 @@
 # Weather App
 
-Simple, clean weather app.
+Minimal weather app, built with ReactJS.
+
+![alt text](./assets/weatherapp.gif "Logo Title Text 1")
 
 ## Built with
-
 - React
-- https://weatherstack.com API
+- https://openweathermap.org/ API
 
-Design by
-https://mir-s3-cdn-cf.behance.net/project_modules/fs/73809289021305.5de7feed5093c.png
