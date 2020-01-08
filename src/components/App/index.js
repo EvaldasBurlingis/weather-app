@@ -6,7 +6,7 @@ const APPID = process.env.REACT_APP_APPID
 
 const BigScreen = () => <div>App works only on mobile</div>;
 
-const MobileApp = ({ data, isLoading }) => {
+const MobileApp = ({allData }) => {
   const [height, setHeight] = useState(window.innerHeight);
   
   useEffect(() => {
@@ -15,9 +15,11 @@ const MobileApp = ({ data, isLoading }) => {
     });
   }, []);
 
+  const [data, isLoading, setCity, errors] = allData
+
   return (
     <div style={{ height: `${height}px`, padding: "1rem 0.5rem" }}>
-      {!isLoading && <Header city={data.name} />}
+      {!isLoading && <Header city={data.name} country={data.sys.country} setCity={setCity} errors={errors}/>}
       <main>
         <section className="current">
           <h2 className="current--title">Today</h2>
@@ -52,15 +54,21 @@ const App = () => {
   const [width, setWidth] = useState(window.innerWidth);
   const [weatherData, setWeatherData] = useState({});
   const [isLoading, setIsLoading] = useState(true);
-  const [city, setCity] = useState("Vilnius");
+  const [city, setCity] = useState("reading,uk");
+  const [errors, setErrors] = useState("");
 
   const fetchData = () => {
     fetch(`${API_URL}${city}&units=metric&appid=${APPID}`)
       .then(response => response.json())
       .then(data => {
-        setWeatherData(data)
-        setIsLoading(false)
-        console.log(data);
+        if (data.cod === "404"){
+          setErrors("City not found");
+          alert("City not found");
+        } else {
+          console.log(data);
+          setWeatherData(data)
+          setIsLoading(false)
+        }
       })
       .catch(error => console.error(error));
   };
@@ -71,9 +79,11 @@ const App = () => {
     });
 
     fetchData();
-  }, []);
+  }, [city]);
 
-  return width > 450 ? <BigScreen /> : <MobileApp data={weatherData} isLoading={isLoading} />;
+  const allData = [weatherData, isLoading, setCity, errors];
+
+  return width > 450 ? <BigScreen /> : <MobileApp allData={allData}/>;
 };
 
 export default App;
